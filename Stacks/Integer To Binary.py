@@ -15,5 +15,12 @@ def convert_int_to_bin(dec_num):
 
     return binary
 
-#Test
+#Test Cases
 print(convert_int_to_bin(55))
+print(convert_int_to_bin(56))
+print(convert_int_to_bin(2))
+print(convert_int_to_bin(32))
+print(convert_int_to_bin(10))
+
+#Test Case to return True/False
+print(int(convert_int_to_bin(56),2)==56)
