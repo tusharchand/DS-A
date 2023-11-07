@@ -9,7 +9,7 @@ def reverse_string(stack, input_str):
 
     while not stack.is_empty():
         rev_str += stack.pop()
-     
+
     return rev_str
 
 s = Stack()
