@@ -21,12 +21,12 @@ def is_paren_balanced(paren_string):
                     is_balanced = False
                     break
         index += 1
-        
+
     if s.is_empty() and is_balanced == True:
         return True
     else:
         return False
-    
+
 def is_match(paren1, paren2):
     if paren1 == '(' and paren2 == ')':
         return True
