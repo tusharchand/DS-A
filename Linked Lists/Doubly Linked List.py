@@ -9,14 +9,14 @@ class Node:
 class DoublyLinkedList:
     def __init__(self) -> None:
         self.head = None
-        
+
     def append(self, data):
         new_node = Node(data)
         new_node.next = self.head
-        
+
         if self.head:
             self.head.prev = new_node
-        
+
         self.head = new_node
 
     # Adding a node at the front of the list
@@ -53,21 +53,21 @@ class DoublyLinkedList:
             new_node.prev.next = new_node
         else:
             self.head = new_node
-    
+
     # Add a node at the end of the DLL
     def append(self, new_data):
         new_node = Node(new_data)
         new_node.next = None
-        
+
         last = self.head
-        
+
         if self.head is None:
             new_node.prev = None
             self.head = new_node
             return
-        
+
         while last.next:
             last = last.next
-        
+
         new_node.prev = last
         last.next = new_node
