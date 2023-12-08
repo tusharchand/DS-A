@@ -11,7 +11,7 @@ class CircularLinkedList:
 
     def append(self, data):
         new_node = Node(data)
-        
+
         if self.head is None:
             self.head = new_node
             new_node.next = self.head
@@ -21,6 +21,6 @@ class CircularLinkedList:
 
         while current.next != self.head:
             current = current.next
-        
+
         current.next = new_node
         new_node.next = self.head
