@@ -4,11 +4,11 @@ def move_tail_to_head(self):
         if self.head and self.head.next:
             last = self.head
             prev = None
-            
+
             while last.next:
                 prev = last
                 last = last.next
-            
+
             last.next = self.head
             prev.next = None
             self.head = last
