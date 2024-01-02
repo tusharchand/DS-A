@@ -170,12 +170,12 @@ class LinkedList:
         p = self.head
         q = llist.head
         s = None
-        
+
         if not p:
             return q
         if not q:
             return p
-        
+
         if p and q:
             if p.data < q.data:
                 s = p
@@ -183,9 +183,9 @@ class LinkedList:
             else:
                 s = q
                 q = s.next
-            
+
             new_head = s
-            
+
         while p and q:
             if p.data < q.data:
                 s.next = p
@@ -195,14 +195,127 @@ class LinkedList:
                 s.next = q
                 s = q
                 q = s.next
-        
+
         if not p:
             s.next = q
         if not q:
             s.next = p
-            
+
         self.head = new_head
         return self.head
+
+    def remove_duplicates(self):
+        cur = self.head
+        prev = None
+        dup_values = dict()
+
+        while cur:
+            if cur.data in dup_values:
+                prev.next = cur.next
+                cur = None
+            else:
+                dup_values[cur.data]=1
+                prev = cur
+            cur = prev.next
+
+    def print_nth_from_last(self, n, method):
+        if method == 1:
+            #Method 1:
+            total_len = self.len_iterative()
+            cur = self.head 
+            while cur:
+                if total_len == n:
+                #print(cur.data)
+                    return cur.data
+                total_len -= 1
+                cur = cur.next
+            if cur is None:
+                return
+
+        elif method == 2:
+            # Method 2:
+            p = self.head
+            q = self.head
+
+            if n > 0:
+                count = 0
+                while q:
+                    count += 1
+                    if(count>=n):
+                        break
+                    q = q.next
+
+                if not q:
+                    print(str(n) + " is greater than the number of nodes in list.")
+                    return
+
+                while p and q.next:
+                    p = p.next
+                    q = q.next
+                return p.data
+            else:
+                return None
+
+    def count_occurences_iterative(self, data):
+        count = 0
+        cur_node = self.head
+
+        while cur_node:
+            if cur_node.data == data:
+                count += 1
+            cur_node = cur_node.next
+
+        return count
+
+    def rotate(self, k):
+        if self.head and self.head.next:
+            p = self.head
+            q = self.head
+            prev = None
+            count = 0
+
+            while p and count < k:
+                prev = p
+                p = p.next
+                q = q.next
+                count += 1
+
+            p = prev
+
+            while q:
+                prev = q
+                q = q.next
+
+            q = prev
+
+            q.next = self.head
+            self.head = p.next
+            p.next = None
+
+    def is_palindrome_1(self):
+        s = ''
+        p = self.head
+
+        while p:
+            s += p.data
+            p = p.next
+
+        return s == s[::-1]
+
+    def is_palindrome_2(self):
+        p = self.head
+        s = []
+
+        while p:
+            s.append(p.data)
+            p = p.next
+        p = self.head
+        while p:
+            data = s.pop()
+            if data != p.data:
+                return False
+            p = p.next
+        return True
 
 #TestCase
 # llist = LinkedList()
@@ -281,20 +394,100 @@ class LinkedList:
 # llist.print_list()
 
 #Test Merge Sorted
-llist_1 = LinkedList()
+# llist_1 = LinkedList()
+# llist_2 = LinkedList()
+
+# llist_1.append(1)
+# llist_1.append(5)
+# llist_1.append(7)
+# llist_1.append(9)
+# llist_1.append(10)
+
+# llist_2.append(2)
+# llist_2.append(3)
+# llist_2.append(4)
+# llist_2.append(6)
+# llist_2.append(8)
+
+# llist_1.merge_sorted(llist_2)
+# llist_1.print_list()
+
+#Test Remove Duplicates
+# llist = LinkedList()
+# llist.append(1)
+# llist.append(6)
+# llist.append(1)
+# llist.append(4)
+# llist.append(2)
+# llist.append(2)
+# llist.append(4)
+
+# print("Original Linked List")
+# llist.print_list()
+# print("Linked List After Removing Duplicates")
+# llist.remove_duplicates()
+# llist.print_list()
+
+#Test Print Nth from last
+# llist = LinkedList()
+# llist.append("A")
+# llist.append("B")
+# llist.append("C")
+# llist.append("D")
+
+# print(llist.print_nth_from_last(4,1))
+# print(llist.print_nth_from_last(4,2))
+
+#Test count occurences of input
+# llist = LinkedList()
+# llist.append(1)
+# llist.append(2)
+# llist.append(3)
+# llist.append(4)
+# llist.append(5)
+# llist.append(6)
+
+# llist_2 = LinkedList()
+# llist_2.append(1)
+# llist_2.append(2)
+# llist_2.append(1)
+# llist_2.append(3)
+# llist_2.append(1)
+# llist_2.append(4)
+# llist_2.append(1)
+# print(llist_2.count_occurences_iterative(1))
+
+#Test Rotate LList
+# llist = LinkedList()
+# llist.append(1)
+# llist.append(2)
+# llist.append(3)
+# llist.append(4)
+# llist.append(5)
+# llist.append(6)
+
+# llist.rotate(4)
+# llist.print_list()
+
+#Test for Palindrome
+
+llist = LinkedList()
+llist.append('B')
+llist.append('o')
+llist.append('B')
+
 llist_2 = LinkedList()
+llist_2.append("A")
+llist_2.append("B")
+llist_2.append("C")
 
-llist_1.append(1)
-llist_1.append(5)
-llist_1.append(7)
-llist_1.append(9)
-llist_1.append(10)
+if llist.is_palindrome_1:
+    print('Palindrome')
+if llist.is_palindrome_2:
+    print('Palindrome')
 
-llist_2.append(2)
-llist_2.append(3)
-llist_2.append(4)
-llist_2.append(6)
-llist_2.append(8)
-
-llist_1.merge_sorted(llist_2)
-llist_1.print_list()
+if llist_2.is_palindrome_1:
+    print('Palindrome')
+else:
+    print('Not Palindrome')
+llist_2.is_palindrome_2
