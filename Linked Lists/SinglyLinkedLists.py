@@ -470,24 +470,23 @@ class LinkedList:
 # llist.print_list()
 
 #Test for Palindrome
+# llist = LinkedList()
+# llist.append('B')
+# llist.append('o')
+# llist.append('B')
 
-llist = LinkedList()
-llist.append('B')
-llist.append('o')
-llist.append('B')
+# llist_2 = LinkedList()
+# llist_2.append("A")
+# llist_2.append("B")
+# llist_2.append("C")
 
-llist_2 = LinkedList()
-llist_2.append("A")
-llist_2.append("B")
-llist_2.append("C")
+# if llist.is_palindrome_1:
+#     print('Palindrome')
+# if llist.is_palindrome_2:
+#     print('Palindrome')
 
-if llist.is_palindrome_1:
-    print('Palindrome')
-if llist.is_palindrome_2:
-    print('Palindrome')
-
-if llist_2.is_palindrome_1:
-    print('Palindrome')
-else:
-    print('Not Palindrome')
-llist_2.is_palindrome_2
+# if llist_2.is_palindrome_1:
+#     print('Palindrome')
+# else:
+#     print('Not Palindrome')
+# llist_2.is_palindrome_2
