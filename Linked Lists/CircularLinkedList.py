@@ -180,12 +180,12 @@ class CircularLinkedList:
 # cllist.split_list()
 
 #Test Josephus Circle
-cllist = CircularLinkedList()
-cllist.append(1)
-cllist.append(2)
-cllist.append(3)
-cllist.append(4)
+# cllist = CircularLinkedList()
+# cllist.append(1)
+# cllist.append(2)
+# cllist.append(3)
+# cllist.append(4)
 
 
-cllist.josephus_circle(2)
-cllist.print_list()
+# cllist.josephus_circle(2)
+# cllist.print_list()
